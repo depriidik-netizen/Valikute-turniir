@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    background-color: #faf8f5;
+    color: #18181b;
+  }
+
+  html.dark {
+    background-color: #0c0816;
+    color: #f4f4f5;
+  }
+
+  body {
+    background-color: transparent;
+    min-height: 100vh;
+  }
+}
+
+/* Atmospheric Halloween Background: Light Mode vs Dark Mode */
+/* Light Mode: Warm cream/off-white background with subtle pumpkin orange glow & delicate web pattern */
+.halloween-bg {
+  background-color: #faf8f5;
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(249, 115, 22, 0.09) 0%, rgba(233, 213, 255, 0.35) 45%, rgba(250, 248, 245, 0.96) 100%),
+    radial-gradient(circle at 10% 90%, rgba(251, 146, 60, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(192, 132, 252, 0.12) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L40 80 M0 40 L80 40 M12 12 L68 68 M12 68 L68 12 M40 16 A24 24 0 0 1 64 40 M64 40 A24 24 0 0 1 40 64 M40 64 A24 24 0 0 1 16 40 M16 40 A24 24 0 0 1 40 16 M40 28 A12 12 0 0 1 52 40 M52 40 A12 12 0 0 1 40 52 M40 52 A12 12 0 0 1 28 40 M28 40 A12 12 0 0 1 40 28' fill='none' stroke='%23ea580c' stroke-width='0.6' stroke-opacity='0.045'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+/* Dark Mode: Deep spooky black/dark purple with vibrant pumpkin highlights & ambient web pattern */
+:is(.dark, .dark *) .halloween-bg,
+.dark.halloween-bg,
+.dark .halloween-bg {
+  background-color: #0c0816;
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(249, 115, 22, 0.12) 0%, rgba(48, 21, 78, 0.28) 45%, rgba(12, 8, 22, 0.98) 100%),
+    radial-gradient(circle at 10% 90%, rgba(234, 88, 12, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(88, 28, 135, 0.12) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L40 80 M0 40 L80 40 M12 12 L68 68 M12 68 L68 12 M40 16 A24 24 0 0 1 64 40 M64 40 A24 24 0 0 1 40 64 M40 64 A24 24 0 0 1 16 40 M16 40 A24 24 0 0 1 40 16 M40 28 A12 12 0 0 1 52 40 M52 40 A12 12 0 0 1 40 52 M40 52 A12 12 0 0 1 28 40 M28 40 A12 12 0 0 1 40 28' fill='none' stroke='%23ea580c' stroke-width='0.6' stroke-opacity='0.045'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+}
+
+/* Pumpkin Glow Utility for both modes */
+.glow-pumpkin {
+  box-shadow: 0 0 25px -4px rgba(249, 115, 22, 0.35);
+}
+
+.glow-pumpkin-subtle {
+  box-shadow: 0 0 15px -2px rgba(249, 115, 22, 0.18);
+}
+
+/* Custom scrollbar styling in Light & Dark modes */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(240, 237, 232, 0.8);
+}
+:is(.dark, .dark *) ::-webkit-scrollbar-track {
+  background: rgba(12, 8, 22, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.65);
+}

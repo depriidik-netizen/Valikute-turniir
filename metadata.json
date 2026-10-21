@@ -1,0 +1,6 @@
+{
+  "name": "Valikute Turniir - Hääletus ja 1-vs-1 Võrdlus",
+  "description": "Turniiripõhine valikute tegemise rakendus: host määrab kategooria, tähtaja ja valikud, osalejad hääletavad paarisvõrdluses ning tulemused selguvad reaalajas edetabelis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
